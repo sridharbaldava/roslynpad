@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1902BBC-351B-499C-ADAC-BFDFD69AD161}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RoslynPad.Roslyn</RootNamespace>
+    <AssemblyName>RoslynPad.Roslyn</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <InternalsAssemblyNames>Microsoft.CodeAnalysis.CSharp;Microsoft.CodeAnalysis.Features;Microsoft.CodeAnalysis.CSharp.Features;Microsoft.CodeAnalysis.Scripting;Microsoft.CodeAnalysis.CSharp.Scripting;Microsoft.CodeAnalysis.Workspaces;Microsoft.CodeAnalysis.CSharp.Workspaces;Microsoft.CodeAnalysis.Extensions;Microsoft.CodeAnalysis.PooledObjects</InternalsAssemblyNames>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzerAssemblyLoader.cs" />
+    <Compile Include="BraceMatching\AbstractBraceMatcher.cs" />
+    <Compile Include="BraceMatching\AbstractCSharpBraceMatcher.cs" />
+    <Compile Include="BraceMatching\AbstractDirectiveTriviaBraceMatcher.cs" />
+    <Compile Include="BraceMatching\BraceCharacterAndKind.cs" />
+    <Compile Include="BraceMatching\BraceMatchingService.cs" />
+    <Compile Include="BraceMatching\BraceMatchingServiceExtensions.cs" />
+    <Compile Include="BraceMatching\CSharpDirectiveTriviaBraceMatcher.cs" />
+    <Compile Include="BraceMatching\ExportBraceMatcherAttribute.cs" />
+    <Compile Include="BraceMatching\IBraceMatcher.cs" />
+    <Compile Include="BraceMatching\IBraceMatchingService.cs" />
+    <Compile Include="BraceMatching\LessThanGreaterThanBraceMatcher.cs" />
+    <Compile Include="BraceMatching\OpenCloseBraceBraceMatcher.cs" />
+    <Compile Include="BraceMatching\OpenCloseBracketBraceMatcher.cs" />
+    <Compile Include="BraceMatching\OpenCloseParenBraceMatcher.cs" />
+    <Compile Include="BraceMatching\StringLiteralBraceMatcher.cs" />
+    <Compile Include="CachedScriptMetadataResolver.cs" />
+    <Compile Include="CodeActions\CodeActionExtensions.cs" />
+    <Compile Include="CodeFixes\CodeFix.cs" />
+    <Compile Include="CodeFixes\CodeFixCollection.cs" />
+    <Compile Include="CodeFixes\CodeFixService.cs" />
+    <Compile Include="CodeFixes\FirstDiagnosticResult.cs" />
+    <Compile Include="CodeFixes\ICodeFixService.cs" />
+    <Compile Include="CodeRefactorings\CodeRefactoring.cs" />
+    <Compile Include="CodeRefactorings\CodeRefactoringService.cs" />
+    <Compile Include="CodeRefactorings\ICodeRefactoringService.cs" />
+    <Compile Include="CodeRefactorings\PasteTrackingService.cs" />
+    <Compile Include="Completion\CompletionHelper.cs" />
+    <Compile Include="Completion\CompletionItemExtensions.cs" />
+    <Compile Include="Completion\Glyph.cs" />
+    <Compile Include="Completion\Providers\AbstractDirectivePathCompletionProvider.cs" />
+    <Compile Include="Completion\Providers\AbstractLoadDirectiveCompletionProvider.cs" />
+    <Compile Include="Completion\Providers\AbstractReferenceDirectiveCompletionProvider.cs" />
+    <Compile Include="Completion\Providers\DirectiveCompletionProviderUtilities.cs" />
+    <Compile Include="Completion\Providers\FileSystemCompletionHelper.cs" />
+    <Compile Include="Completion\Providers\GlobalAssemblyCacheCompletionHelper.cs" />
+    <Compile Include="Completion\Providers\LoadDirectiveCompletionProvider.cs" />
+    <Compile Include="Completion\Providers\ReferenceDirectiveCompletionProvider.cs" />
+    <Compile Include="DiagnosticOptions.cs" />
+    <Compile Include="Diagnostics\DiagnosticData.cs" />
+    <Compile Include="Diagnostics\DiagnosticDataLocation.cs" />
+    <Compile Include="Diagnostics\DiagnosticsService.cs" />
+    <Compile Include="Diagnostics\DiagnosticsUpdatedArgs.cs" />
+    <Compile Include="Diagnostics\DiagnosticsUpdatedKind.cs" />
+    <Compile Include="Diagnostics\IDiagnosticService.cs" />
+    <Compile Include="Diagnostics\UpdatedEventArgs.cs" />
+    <Compile Include="Diagnostics\WorkspaceDiagnosticAnalyzerProviderService.cs" />
+    <Compile Include="DocumentCreationArgs.cs" />
+    <Compile Include="DocumentExtensions.cs" />
+    <Compile Include="DocumentTrackingService.cs" />
+    <Compile Include="IEditorCaretProvider.cs" />
+    <Compile Include="IRoslynHost.cs" />
+    <Compile Include="ISymbolExtensions.cs" />
+    <Compile Include="LanguageServices\ChangeSignature\ChangeSignatureDialogViewModel.cs" />
+    <Compile Include="LanguageServices\ChangeSignature\ChangeSignatureOptionsService.cs" />
+    <Compile Include="LanguageServices\ChangeSignature\IChangeSignatureDialog.cs" />
+    <Compile Include="LanguageServices\ChangeSignature\ParameterConfiguration.cs" />
+    <Compile Include="LanguageServices\ChangeSignature\SignatureChange.cs" />
+    <Compile Include="LanguageServices\ExtractInterface\ExtractInterfaceDialogViewModel.cs" />
+    <Compile Include="LanguageServices\ExtractInterface\ExtractInterfaceOptionsService.cs" />
+    <Compile Include="LanguageServices\ExtractInterface\IExtractInterfaceDialog.cs" />
+    <Compile Include="LanguageServices\IRoslynDialog.cs" />
+    <Compile Include="LanguageServices\PickMembers\PickMembersDialogViewModel.cs" />
+    <Compile Include="LanguageServices\PickMembers\PickMembersService.cs" />
+    <Compile Include="Navigation\DocumentNavigationService.cs" />
+    <Compile Include="NotificationObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickInfo\IQuickInfoProvider.cs" />
+    <Compile Include="QuickInfo\QuickInfoProvider.cs" />
+    <Compile Include="Rename\RenameHelper.cs" />
+    <Compile Include="RoslynHost.cs" />
+    <Compile Include="RoslynHostReferences.cs" />
+    <Compile Include="RoslynWorkspace.cs" />
+    <Compile Include="Scripting\ScriptRunner.cs" />
+    <Compile Include="SignatureHelp\AggregateSignatureHelpProvider.cs" />
+    <Compile Include="SignatureHelp\ISignatureHelpProvider.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpItem.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpItems.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpParameter.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpProviderExtensions.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpTriggerInfo.cs" />
+    <Compile Include="SignatureHelp\SignatureHelpTriggerReason.cs" />
+    <Compile Include="Snippets\SnippetInfo.cs" />
+    <Compile Include="Snippets\SnippetInfoService.cs" />
+    <Compile Include="WorkspaceExtensions.cs" />
+    <Compile Include="WorkspaceServices\AddMetadataReferenceCodeActionOperationFactoryWorkspaceService.cs" />
+    <Compile Include="WorkspaceServices\DocumentationProviderServiceFactory.cs" />
+    <Compile Include="WorkspaceServices\SymbolRenamedCodeActionOperationFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis">
+      <Version>3.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="IgnoresAccessChecksToGenerator" Version="0.4.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="3.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common">
+      <Version>3.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
