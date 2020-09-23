@@ -186,14 +186,14 @@ namespace RoslynPad.Editor
 
             RaiseEvent(args);
 
-            if (args.ContentToShow == null)
-            {
-                var asyncRequest = AsyncToolTipRequest?.Invoke(args);
-                if (asyncRequest != null)
-                {
-                    await asyncRequest.ConfigureAwait(true);
-                }
-            }
+            //if (args.ContentToShow == null)
+            //{
+            //    var asyncRequest = AsyncToolTipRequest?.Invoke(args);
+            //    if (asyncRequest != null)
+            //    {
+            //        await asyncRequest.ConfigureAwait(true);
+            //    }
+            //}
 
             if (args.ContentToShow == null)
             {
